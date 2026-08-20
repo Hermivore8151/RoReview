@@ -1,11 +1,10 @@
 {
   "manifest_version": 3,
   "name": "RoReviews",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Leave and read Steam-style reputation reviews on Roblox profiles. Upvote, downvote, and see who to trust before you trade or play.",
   "permissions": [
-    "storage",
-    "activeTab"
+    "storage"
   ],
   "host_permissions": [
     "https://*.roblox.com/*",
