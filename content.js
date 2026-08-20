@@ -10,6 +10,7 @@ let targetUsername = '';
 let allReviews = [];
 let profileRating = { up: [], down: [] };
 let currentPage = 1;
+let activeObserver = null;
 let bulkDeleteMode = false;
 let bulkDeleteSelection = new Set();
 const avatarCache = {};
@@ -563,6 +564,13 @@ function toggleBulkMode(on) {
     renderPage(currentPage);
 }
 
+function disconnectActiveObserver() {
+    if (activeObserver) {
+        activeObserver.disconnect();
+        activeObserver = null;
+    }
+}
+
 function attachEventListeners() {
     document.getElementById('hr-login-btn').onclick = login;
     document.getElementById('hr-logout-btn').onclick = logout;
@@ -644,6 +652,9 @@ async function init() {
     bulkDeleteMode = false;
     bulkDeleteSelection.clear();
 
+    // disconnect existing observer, it gets recreated right after this
+    disconnectActiveObserver();
+
     const observer = new MutationObserver((mutations, obs) => {
         const mainContent = document.querySelector('.content-main') || document.querySelector('main') || document.body;
         if (mainContent && !document.getElementById('hermivore-reviews-container')) {
@@ -660,6 +671,9 @@ async function init() {
             }
         }
     });
+    // set active observer to the active observer
+    activeObserver = observer;
+
     observer.observe(document.body, { childList: true, subtree: true });
 }
 
@@ -670,6 +684,10 @@ new MutationObserver(() => {
         lastUrl = url;
         const old = document.getElementById('hermivore-reviews-container');
         if (old) old.remove();
+
+        // disconnect existing observer on navigation
+        disconnectActiveObserver();
+
         if (window.location.pathname.match(/\/users\/(\d+)\//)) init();
         else targetId = null;
     }
