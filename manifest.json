@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "RoReviews",
+  "version": "1.0",
+  "description": "Leave and read Steam-style reputation reviews on Roblox profiles. Upvote, downvote, and see who to trust before you trade or play.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.roblox.com/*",
+    "https://hermivore.cat/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.roblox.com/users/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
