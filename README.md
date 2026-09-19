@@ -1,4 +1,4 @@
-Chrome Webstore: https://chromewebstore.google.com/detail/pldfgikbjlmcodfkddefledmmbmbndbn
+Chrome Webstore: https://chromewebstore.google.com/detail/pldfgikbjlmcodfkddefledmmbmbndbn  
 CDN and archive: https://hermivore.cat/cdn/roblox/reviews/.contents  
 
 Ever been scammed in a trade? Wanted to know if a user is actually trustworthy before joining their server or buying from them? Or maybe you want to know if a game's community is welcoming or toxic before you jump in?
