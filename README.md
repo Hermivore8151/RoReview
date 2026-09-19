@@ -7,7 +7,8 @@ Roblox Profile & Game Reviews brings a familiar, Steam-inspired review system di
 - Universal Reviews: View a clean, paginated list of reviews at the bottom of any user profile or game page, complete with an overall community rating.  
 - Curate the Community: Upvote helpful, honest reviews and downvote spam or toxicity to help others make informed decisions.  
 - Community Ratings: Leave a quick 👍 or 👎 on any profile or game page to contribute to the overall community score.  
-- Control Your Space: Edit your own reviews, and use powerful moderation tools on your own profile to bulk-delete spam or block toxic users from leaving future reviews.  
+- Control Your Space: Edit your own reviews, and use powerful moderation tools on your own profile to bulk-delete spam or block toxic users from leaving future reviews.
+- Reply to other reviews, to share your thoughts on what other people have said
 
 # Verification:  
 To prevent spam, bots, and fake reviews, you must verify your identity to leave a review. We **never** ask for your password or `.ROBLOSECURITY` cookie!  
