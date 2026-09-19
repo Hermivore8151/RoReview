@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "RoReviews",
-  "version": "1.3",
-  "description": "Leave and read Steam-style reputation reviews on Roblox profiles and games. Upvote, downvote, and see who to trust before you trade or play.",
+  "version": "1.4",
+  "description": "Leave and read reviews on Roblox profiles and games. Upvote, downvote, and see who to trust before you trade or play.",
   "permissions": [
     "storage"
   ],
@@ -16,7 +16,15 @@
         "https://www.roblox.com/users/*",
         "https://www.roblox.com/games/*"
       ],
-      "js": ["content.js"],
+      "js": [
+        "state.js",
+        "utils.js",
+        "ui.js",
+        "api.js",
+        "tabs.js",
+        "events.js",
+        "content.js"
+      ],
       "run_at": "document_idle"
     }
   ],
