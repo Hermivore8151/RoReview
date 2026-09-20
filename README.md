@@ -1,4 +1,21 @@
-Chrome Webstore: https://chromewebstore.google.com/detail/pldfgikbjlmcodfkddefledmmbmbndbn  
+# RoReview
+
+## Download
+
+<!-- Chrome Web Store -->
+[![Available in the Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-Get_Extension-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/pldfgikbjlmcodfkddefledmmbmbndbn) <br>
+[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/pldfgikbjlmcodfkddefledmmbmbndbn?style=flat-square&logo=googlechrome&logoColor=white&label=Version)](https://chromewebstore.google.com/detail/pldfgikbjlmcodfkddefledmmbmbndbn)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/pldfgikbjlmcodfkddefledmmbmbndbn?style=flat-square&color=blue)](https://chromewebstore.google.com/detail/pldfgikbjlmcodfkddefledmmbmbndbn)
+[![Chrome Web Store Rating](https://img.shields.io/chrome-web-store/stars/pldfgikbjlmcodfkddefledmmbmbndbn?style=flat-square)](https://chromewebstore.google.com/detail/pldfgikbjlmcodfkddefledmmbmbndbn)
+
+<!-- Firefox Add-ons -->
+[![Get Firefox Add-on](https://img.shields.io/badge/Firefox_Add--ons-Get_Extension-FF7139?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/roreview/) <br>
+[![Mozilla Add-on Version](https://img.shields.io/amo/v/roreview?style=flat-square&logo=firefoxbrowser&logoColor=white&label=Version)](https://addons.mozilla.org/en-US/firefox/addon/roreview/)
+[![Mozilla Add-on Users](https://img.shields.io/amo/users/roreview?style=flat-square&color=orange)](https://addons.mozilla.org/en-US/firefox/addon/roreview/)
+[![Mozilla Add-on Rating](https://img.shields.io/amo/stars/roreview?style=flat-square)](https://addons.mozilla.org/en-US/firefox/addon/roreview/)
+
+---
+
 CDN and archive: https://hermivore.cat/cdn/roblox/reviews/.contents  
 
 Ever been scammed in a trade? Wanted to know if a user is actually trustworthy before joining their server or buying from them? Or maybe you want to know if a game's community is welcoming or toxic before you jump in?
