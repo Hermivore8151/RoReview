@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "RoReviews",
-  "version": "1.4",
+  "name": "RoReview",
+  "version": "1.5",
   "description": "Leave and read reviews on Roblox profiles and games. Upvote, downvote, and see who to trust before you trade or play.",
   "permissions": [
     "storage"
@@ -14,7 +14,7 @@
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "roreviews@hermivore",
+      "id": "roreview@hermivore",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
         "required": [
