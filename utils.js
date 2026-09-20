@@ -19,7 +19,7 @@ function isPageDark() {
 
 async function fetchUsername(userId) {
     try {
-        const res = await fetch(`https://users.roblox.com/v1/users/${userId}`);
+        const res = await remoteFetch(`https://users.roblox.com/v1/users/${userId}`);
         if (res.ok) {
             const data = await res.json();
             return data.name || data.displayName || 'User';
@@ -37,7 +37,7 @@ async function fetchGameName(gameId) {
         }
     } catch (e) {}
     try {
-        const res = await fetch(`https://games.roblox.com/v1/games?universeIds=${gameId}`);
+        const res = await remoteFetch(`https://games.roblox.com/v1/games?universeIds=${gameId}`);
         if (res.ok) {
             const data = await res.json();
             if (data.data && data.data.length > 0 && data.data[0].name) return data.data[0].name;
@@ -52,7 +52,7 @@ async function ensureAvatars(ids) {
     for (let i = 0; i < missing.length; i += 100) {
         const chunk = missing.slice(i, i + 100);
         try {
-            const res = await fetch(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${chunk.join(',')}&size=150x150&format=Png&isCircular=false`);
+            const res = await remoteFetch(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${chunk.join(',')}&size=150x150&format=Png&isCircular=false`);
             if (res.ok) {
                 const j = await res.json();
                 (j.data || []).forEach(d => {
@@ -67,7 +67,7 @@ async function ensureAvatars(ids) {
 async function usernamesToIds(usernames) {
     if (!usernames.length) return {};
     try {
-        const res = await fetch('https://users.roblox.com/v1/usernames/users', {
+        const res = await remoteFetch('https://users.roblox.com/v1/usernames/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ usernames, excludeBannedUsers: false })
@@ -129,7 +129,7 @@ async function ensureUsernames(ids) {
         const chunk = stillMissing.slice(i, i + 100).map(id => Number(id)); // Ensure they are numbers for the JSON payload
         
         try {
-            const res = await fetch('https://users.roblox.com/v1/users', {
+            const res = await remoteFetch('https://users.roblox.com/v1/users', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userIds: chunk, excludeBannedUsers: false })

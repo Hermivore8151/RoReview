@@ -2,7 +2,7 @@ async function apiCall(url, options = {}) {
     if (currentUser && currentUser.session_token) {
         options.headers = { ...options.headers, 'Authorization': `Bearer ${currentUser.session_token}` };
     }
-    const res = await fetch(url, options);
+    const res = await remoteFetch(url, options);
     const data = await res.json();
     if (data.error && (data.reason === "Validation Required" || data.reason === "Invalid JWT")) {
         logout();
@@ -16,7 +16,7 @@ async function apiCall(url, options = {}) {
 async function login() {
     UI.showAuthUI('loading', 'Initiating login...');
     try {
-        const challengeRes = await fetch(`${API_BASE}/api/roblox/oauth/challenge`, { method: 'POST' });
+        const challengeRes = await remoteFetch(`${API_BASE}/api/roblox/oauth/challenge`, { method: 'POST' });
         if (!challengeRes.ok) throw new Error('OAuth challenge failed');
         const challenge = await challengeRes.json();
         const authWindow = window.open(challenge.auth_url, 'Roblox OAuth', 'width=800,height=700,left=200,top=200');
@@ -24,7 +24,7 @@ async function login() {
         let sessionToken = null;
         while (!sessionToken) {
             await new Promise(r => setTimeout(r, 2000));
-            const status = await (await fetch(`${API_BASE}/api/roblox/oauth/status/${challenge.session_id}`)).json();
+            const status = await (await remoteFetch(`${API_BASE}/api/roblox/oauth/status/${challenge.session_id}`)).json();
             if (status.status === 'ok') {
                 sessionToken = status.session_token;
                 currentUser = { id: status.user_id, name: status.username, session_token: sessionToken };
@@ -44,7 +44,7 @@ async function login() {
 
 async function fallbackFriendOracle() {
     try {
-        const challengeRes = await fetch(`${API_BASE}/api/roblox/verify/challenge`, { method: 'POST' });
+        const challengeRes = await remoteFetch(`${API_BASE}/api/roblox/verify/challenge`, { method: 'POST' });
         if (!challengeRes.ok) throw new Error('Verify challenge failed');
         const challenge = await challengeRes.json();
         if (challenge.error) throw new Error(challenge.reason);
@@ -52,7 +52,7 @@ async function fallbackFriendOracle() {
         let sessionToken = null;
         while (!sessionToken) {
             await new Promise(r => setTimeout(r, 2000));
-            const status = await (await fetch(`${API_BASE}/api/roblox/verify/status/${challenge.session_id}`)).json();
+            const status = await (await remoteFetch(`${API_BASE}/api/roblox/verify/status/${challenge.session_id}`)).json();
             if (status.status === 'ok') {
                 sessionToken = status.session_token;
                 currentUser = { id: status.user_id, name: status.username, session_token: sessionToken };
