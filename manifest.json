@@ -6,6 +6,17 @@
   "permissions": [
     "storage"
   ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "roreviews@hermivore",
+      "strict_min_version": "109.0"
+    }
+  },
   "host_permissions": [
     "https://*.roblox.com/*",
     "https://hermivore.cat/*"
