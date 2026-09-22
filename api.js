@@ -14,14 +14,24 @@ async function apiCall(url, options = {}) {
 }
 
 async function login() {
+    const authWindow = window.open('about:blank', 'Roblox OAuth', 'width=800,height=700,left=200,top=200');
+    
     UI.showAuthUI('loading', 'Initiating login...');
     try {
         const challengeRes = await remoteFetch(`${API_BASE}/api/roblox/oauth/challenge`, { method: 'POST' });
         if (!challengeRes.ok) throw new Error('OAuth challenge failed');
         const challenge = await challengeRes.json();
-        const authWindow = window.open(challenge.auth_url, 'Roblox OAuth', 'width=800,height=700,left=200,top=200');
+
+        if (!authWindow) {
+            UI.showAuthUI('error', 'Popup blocked! Please allow popups for this site to log in.');
+            return;
+        }
+
+        authWindow.location.href = challenge.auth_url;
+
         UI.showAuthUI('pending', 'Waiting for Roblox authorization... (check the new tab)');
         let sessionToken = null;
+        
         while (!sessionToken) {
             await new Promise(r => setTimeout(r, 2000));
             const status = await (await remoteFetch(`${API_BASE}/api/roblox/oauth/status/${challenge.session_id}`)).json();
@@ -32,11 +42,13 @@ async function login() {
                 break;
             } else if (status.status === 'expired') throw new Error('OAuth session expired');
         }
+        
         if (authWindow && !authWindow.closed) authWindow.close();
         UI.hideAuthUI();
         UI.renderAuthState();
         await loadReviews();
     } catch (err) {
+        if (authWindow && !authWindow.closed) authWindow.close();
         console.warn('OAuth failed, falling back to Friend Oracle', err);
         await fallbackFriendOracle();
     }
