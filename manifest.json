@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "RoReview",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Leave and read reviews on Roblox profiles and games. Upvote, downvote, and see who to trust before you trade or play.",
   "permissions": [
     "storage"
