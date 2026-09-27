@@ -28,6 +28,18 @@ function setupGameReviewsTab() {
     });
 
     tabList.appendChild(li);
+    
+    /* thanks valra */
+    tabList.style.display = 'flex';
+    tabList.style.flexWrap = 'nowrap';
+
+    tabList.querySelectorAll('.rbx-tab').forEach(tab => {
+        tab.style.width = 'auto';
+        tab.style.flex = '1 1 auto';
+        tab.style.float = 'none';
+        tab.style.minWidth = '0';
+    });
+
     return true;
 }
 
