@@ -16,7 +16,7 @@
 
 ---
 
-CDN and archive: https://hermivore.cat/cdn/roblox/reviews/.contents  
+CDN and archive: https://hermivore.cat/cdn/browser?path=/roblox/reviews/versions
 
 Ever been scammed in a trade? Wanted to know if a user is actually trustworthy before joining their server or buying from them? Or maybe you want to know if a game's community is welcoming or toxic before you jump in?
 Roblox Profile & Game Reviews brings a familiar, Steam-inspired review system directly to Roblox. Let the community build a transparent reputation system where you can leave feedback, read about other players' experiences, and see a quick "Positive Percentage" score at a glance - right on user profiles and game pages.  
