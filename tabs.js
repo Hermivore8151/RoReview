@@ -18,8 +18,11 @@ function setupGameReviewsTab() {
     const sampleLink = sample ? (sample.querySelector('a') || sample.querySelector('button')) : null;
     const link = document.createElement(sampleLink ? sampleLink.tagName.toLowerCase() : 'a');
     if (sampleLink) link.className = sampleLink.className;
-    link.textContent = 'Reviews';
     link.href = '#';
+    const text = document.createElement('span');
+    text.className = 'text-lead';
+    text.textContent = 'Reviews';
+    link.appendChild(text);
     li.appendChild(link);
 
     [li, link].forEach(el => {
@@ -28,7 +31,7 @@ function setupGameReviewsTab() {
     });
 
     tabList.appendChild(li);
-    
+
     /* thanks valra */
     tabList.style.display = 'flex';
     tabList.style.flexWrap = 'nowrap';
